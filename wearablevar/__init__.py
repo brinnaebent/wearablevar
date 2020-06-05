@@ -84,7 +84,7 @@ def interdaysd(df):
     return interdaysd
 
 def intradaycv(df):
-     """
+    """
         computes the intradaycv, returns the mean, median, and sd of intraday cv Sensor column in pandas dataframe
         Args:
              df (pandas.DataFrame):
@@ -94,6 +94,7 @@ def intradaycv(df):
             intradaycv_sd (IntegerType): SD of intraday coefficient of variation 
     """
     intradaycv = []
+    
     for i in pd.unique(df['Day']):
         intradaycv.append(interdaycv_(df[df['Day']==i]))
     
@@ -104,7 +105,7 @@ def intradaycv(df):
     return intradaycv_mean, intradaycv_median, intradaycv_sd
 
 def intradaysd(df):
-     """
+    """
         computes the intradaysd, returns the mean, median, and sd of intraday sd Sensor column in pandas dataframe
         Args:
              df (pandas.DataFrame):
@@ -112,7 +113,7 @@ def intradaysd(df):
             intradaysd_mean (IntegerType): Mean, Median, and SD of intraday standard deviation 
             intradaysd_median (IntegerType): Median of intraday standard deviation 
             intradaysd_sd (IntegerType): SD of intraday standard deviation 
-     """
+    """
     intradaysd =[]
     for i in pd.unique(df['Day']):
         intradaysd.append(np.std(df[df['Day']==i]))
@@ -124,7 +125,7 @@ def intradaysd(df):
     return intradaysd_mean, intradaysd_median, intradaysd_sd
 
 def intradaymean(df):
-     """
+    """
         computes the intradaymean, returns the mean, median, and sd of the intraday mean of the Sensor data
         Args:
              df (pandas.DataFrame):
@@ -144,8 +145,8 @@ def intradaymean(df):
     return intradaymean_mean, intradaymean_median, intradaymean_sd
 
 
-def TIR(df, sd=1, sr=1)):
-     """
+def TIR(df, sd=1, sr=1):
+    """
         computes time in the range of (default=1 sd from the mean) sensor column in pandas dataframe
         Args:
              df (pandas.DataFrame):
@@ -179,7 +180,7 @@ def TOR(df, sd=1, sr=1):
 
 
 def POR(df, sd=1, sr=1):
-     """
+    """
         computes percent time outside the range of (default=1 sd from the mean) sensor column in pandas dataframe
         Args:
              df (pandas.DataFrame):
