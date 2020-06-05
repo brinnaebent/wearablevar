@@ -29,30 +29,32 @@ import datetime as datetime
     '''
 
 
-def importe4(filename):
+def importe4(filename, f = '%Y-%m-%d %H:%M:%S.%f'):
     """
         Function for importing and formatting for use with other functions.
         Args:
             filename (string): filename to a .csv with 2 columns - one with time in format = '%Y-%m-%d %H:%M:%S.%f', and the other column being the sensor value
+            f (string): Datetime format of .csv
         Returns:
             df (pandas.DataFrame): 
     """
     df = pd.read_csv(filename, header=None, names=['Time', 'Sensor']) 
-    df['Time'] =  pd.to_datetime(df['Time'], format='%Y-%m-%d %H:%M:%S.%f')
+    df['Time'] =  pd.to_datetime(df['Time'], format=f)
     df['Day'] = df['Time'].dt.date
     df = df.reset_index()
     return df
 
-def importe4acc(filename):
+def importe4acc(filename, f = '%Y-%m-%d %H:%M:%S.%f'):
     """
         Function for importing and formatting for use with other functions.
         Args:
             filename (string): filename to a .csv with 4 columns - one with time in format = '%Y-%m-%d %H:%M:%S.%f', and the other columns being x,y,z of tri-axial accelerometry
+            f (string): Datetime format of .csv
         Returns:
             df (pandas.DataFrame): 
     """
     df = pd.read_csv(filename, header=None, names=['Time', 'X', 'Y', 'Z']) 
-    df['Time'] =  pd.to_datetime(df['Time'], format='%Y-%m-%d %H:%M:%S.%f')
+    df['Time'] =  pd.to_datetime(df['Time'], format=f)
     df['Day'] = df['Time'].dt.date
     df['ri'] = np.sqrt(df['X']**2 + df['Y']**2 + df['Z']**2)
     df['Sensor'] = df['ri'] - 64
