@@ -2,10 +2,10 @@ from distutils.core import setup
 
 setup(name='wearablevar',
       packages = ['wearablevar'],
-      version='0.2',
+      version='0.3',
       description='Variability Metrics from Longitudinal Wearable Sensors',
       url='https://github.com/brinnaebent/wearablevar',
-      download_url = 'https://github.com/brinnaebent/wearablevar/archive/0.2.tar.gz',
+      download_url = 'https://github.com/brinnaebent/wearablevar/archive/0.3.tar.gz',
       author='Brinnae Bent',
       author_email='runsdata@gmail.com',
       keywords = ['wearables', 'features', 'feature engineering'],

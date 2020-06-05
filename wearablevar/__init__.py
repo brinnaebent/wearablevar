@@ -29,7 +29,7 @@ import datetime as datetime
     '''
 
 
-def importe4(filename, f = '%Y-%m-%d %H:%M:%S.%f'):
+def importe4(filename, f='%Y-%m-%d %H:%M:%S.%f'):
     """
         Function for importing and formatting for use with other functions.
         Args:
@@ -44,7 +44,7 @@ def importe4(filename, f = '%Y-%m-%d %H:%M:%S.%f'):
     df = df.reset_index()
     return df
 
-def importe4acc(filename, f = '%Y-%m-%d %H:%M:%S.%f'):
+def importe4acc(filename, f='%Y-%m-%d %H:%M:%S.%f'):
     """
         Function for importing and formatting for use with other functions.
         Args:
@@ -98,7 +98,7 @@ def intradaycv(df):
     intradaycv = []
     
     for i in pd.unique(df['Day']):
-        intradaycv.append(interdaycv_(df[df['Day']==i]))
+        intradaycv.append(interdaycv(df[df['Day']==i]))
     
     intradaycv_mean = np.mean(intradaycv)
     intradaycv_median = np.median(intradaycv)
